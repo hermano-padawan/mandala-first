@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://patricks-little-studio.harfy.chatgpt.site/sitemap.xml
