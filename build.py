@@ -1,5 +1,6 @@
 """Build the small, crawlable studio website. Python 3 + Pillow + reportlab."""
-import os, json, shutil, html
+import os, json, shutil, html, re
+from urllib.parse import urlparse
 from pathlib import Path
 from PIL import Image
 from reportlab.pdfgen import canvas
@@ -8,6 +9,7 @@ from reportlab.lib.pagesizes import A4, letter
 ROOT=Path(__file__).parent
 OUT=ROOT/'dist'
 ORIGIN=os.environ.get('SITE_URL','https://patricks-little-studio.harfy.chatgpt.site').rstrip('/')
+BASE_PATH=urlparse(ORIGIN).path.rstrip('/')
 DATA=json.loads((ROOT/'content.json').read_text())
 if OUT.exists(): shutil.rmtree(OUT)
 (OUT/'assets').mkdir(parents=True)
@@ -27,6 +29,7 @@ def page(path,title,desc,body,schema=None,noindex=False):
     if schema:base+=schema
     doc=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{e(title)}</title><meta name="description" content="{e(desc)}"><meta name="robots" content="{'noindex,follow' if noindex else 'index,follow,max-image-preview:large'}"><link rel="canonical" href="{e(url)}"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/style.css"><meta property="og:type" content="website"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{e(url)}"><meta property="og:image" content="{ORIGIN}/assets/octopus-mandala-large.webp"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">{json.dumps(base,ensure_ascii=False).replace('<','\\u003c')}</script></head><body><a class="skip" href="#main">Skip to content</a><header class="header"><a class="brand" href="/" aria-label="Patrick’s Little Studio home"><img src="/assets/flower.svg" width="44" height="44" alt=""><span>Patrick’s<br><strong>Little Studio</strong></span></a><nav aria-label="Main navigation"><a href="/coloring-pages/">The mandalas</a><a href="/about/">Meet the studio</a></nav></header><main id="main">{body}</main><footer><div class="footer-top"><a class="footer-brand" href="/">Patrick’s Little Studio</a><p>A little paper. A little color. A little time to play.</p></div><div class="footer-links"><a href="/coloring-pages/">All mandalas</a><a href="/about/">About & creative process</a><a href="/terms/">Printing & use</a><a href="/privacy/">Privacy</a></div><small>© 2026 Patrick’s Little Studio · Free for personal and classroom coloring.</small></footer></body></html>'''
     dest=OUT/('404.html' if path=='/404/' else path.lstrip('/')+'index.html')
+    doc=re.sub(r'(href|src)="/(?!/)',lambda m:m.group(1)+'="'+BASE_PATH+'/',doc)
     dest.parent.mkdir(parents=True,exist_ok=True);dest.write_text(doc)
     if not noindex:pages.append(path)
 
