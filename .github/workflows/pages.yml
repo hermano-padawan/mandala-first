@@ -26,7 +26,7 @@ jobs:
       - name: Build for the configured public URL
         run: python build.py
         env:
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
+          SITE_URL: https://patrickscoloringpages.site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

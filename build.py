@@ -9,7 +9,7 @@ from reportlab.lib.pagesizes import A4, letter
 
 ROOT=Path(__file__).parent
 OUT=ROOT/'dist'
-ORIGIN=os.environ.get('SITE_URL','https://patricks-little-studio.harfy.chatgpt.site').rstrip('/')
+ORIGIN=os.environ.get('SITE_URL','https://patrickscoloringpages.site').rstrip('/')
 BASE_PATH=urlparse(ORIGIN).path.rstrip('/')
 DATA=json.loads((ROOT/'content.json').read_text())
 if OUT.exists(): shutil.rmtree(OUT)
