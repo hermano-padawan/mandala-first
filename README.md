@@ -4,7 +4,7 @@ A small English-language studio of seven printable mandalas for kids. Static HTM
 
 ## Build
 
-Install `requirements.txt`, then run `python build.py`. Deploy the `dist` directory. All pages, image previews, PDFs, robots and sitemap are generated together.
+Install `requirements.txt`, then run `python build.py`. Deploy the `dist` directory. All pages, image previews, print views, robots and sitemap are generated together.
 
 Set `SITE_URL=https://your-final-domain` when building for a public domain. The default is the private Sites review URL. Never submit a private preview to Search Console. After selecting the final public domain, rebuild to update every canonical URL and sitemap entry, deploy publicly and verify the responses before submitting the sitemap.
 
@@ -18,7 +18,7 @@ Set `SITE_URL=https://your-final-domain` when building for a public domain. The 
 - Unique titles, descriptions, one H1, absolute self-canonicals, descriptive image alt text and normal anchor links.
 - BreadcrumbList and ImageObject markup on design pages; no fabricated Person credentials or reviews.
 - Responsive WebP previews with explicit dimensions and lazy loading below the fold.
-- A4 and Letter PDFs served as files with `X-Robots-Tag: noindex` in supported hosts, keeping HTML design pages as the search destinations.
+- Dedicated noindex browser print views use original PNGs at 90% of printable width, capped at 167.4 mm, with 12 mm page margins for A4 and Letter.
 - Terms, privacy and 404 have HTML `noindex`; legal pages remain crawlable and linked.
 - Sitemap includes only indexable HTML. Real 404 document; no catch-all SPA redirect.
 
@@ -28,6 +28,6 @@ The long-tail page titles describe the artwork; keyword demand and ranking diffi
 
 The English notices in `legal.py` cover operator identity, privacy, cookies, children, free printing permissions and mandatory consumer protections. They are tailored to a Spanish-operated free static website with international visitors, not a certification of compliance in every country. Highlighted `[aqui tu informacion personal]` boxes are intentionally unfinished. Complete legal name, contact email, postal address, tax ID when required, registration details if applicable, email provider and its transfer arrangements. Remove the draft notice only after checking those facts and the actual processing. Do not disclose unnecessary personal documents or children’s information.
 
-GitHub Pages records IPs for security. Its `_headers` file is not supported on GitHub Pages, so PDF noindex headers cannot be assumed there. Legal HTML uses meta noindex and is excluded from the sitemap. No optional trackers or consent banner are added. Introducing ads, analytics, uploads, accounts or child data collection requires a new assessment and implementation, not just a new paragraph.
+GitHub Pages records IPs for security. Its `_headers` file is not supported on GitHub Pages. Print views use meta noindex and are excluded from the sitemap. Legal HTML uses meta noindex and is excluded from the sitemap. No optional trackers or consent banner are added. Introducing ads, analytics, uploads, accounts or child data collection requires a new assessment and implementation, not just a new paragraph.
 
 Patrick is a fictional brand host; the project is real. The home focuses on the drawings, and the creative-process page keeps a concise truthful explanation.
