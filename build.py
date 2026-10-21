@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 from pathlib import Path
 from legal import PAGES
 from PIL import Image
+import io
 
 ROOT=Path(__file__).parent
 OUT=ROOT/'dist'
@@ -18,7 +19,7 @@ e=html.escape
 brand="Patrick’s Little Studio"
 pages=[]
 def image(d,large=False):
-    s=d['slug']; return f'<img src="/assets/{s}-{"large" if large else "small"}.webp?v=20261011-art3" width="{1200 if large else 480}" height="{1200 if large else 480}" alt="{e(d["alt"])}" loading="{"eager" if large else "lazy"}" decoding="async">'
+    s=d['slug']; return f'<img src="/assets/{s}-{"large" if large else "small"}.webp?v=20261021-butterfly-v2" width="{1200 if large else 480}" height="{1200 if large else 480}" alt="{e(d["alt"])}" loading="{"eager" if large else "lazy"}" decoding="async">'
 def cards(items):
     return '<div class="grid">'+''.join(f'<a class="card" href="/coloring-pages/{d["slug"]}/">{image(d)}<span class="card-label">{e(d["name"])} <span aria-hidden="true">↗</span></span><span class="card-note">{e(d["short"])}</span></a>' for d in items)+'</div>'
 def page(path,title,desc,body,schema=None,noindex=False):
@@ -33,6 +34,14 @@ def page(path,title,desc,body,schema=None,noindex=False):
 
 for d in DATA:
     s=d['slug']
+    if s == 'butterfly-mandala':
+        try:
+            import cairosvg
+            svg_file = ROOT / 'originals' / 'butterfly-mandala-v2.svg'
+            png_bytes = cairosvg.svg2png(url=str(svg_file), output_width=3000, output_height=3000)
+            (ROOT / 'originals' / f'{s}.png').write_bytes(png_bytes)
+        except ImportError as exc:
+            raise RuntimeError('Install cairosvg to render the butterfly SVG') from exc
     for label,size in [('small',480),('large',1200)]:
         im=Image.open(ROOT/'originals'/f'{s}.png').convert('RGB');im.thumbnail((size,size));im.save(OUT/'assets'/f'{s}-{label}.webp',quality=90)
     shutil.copy2(ROOT/'originals'/f'{s}.png',OUT/'assets'/f'{s}-print.png')
