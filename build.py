@@ -19,7 +19,7 @@ e=html.escape
 brand="Patrick’s Little Studio"
 pages=[]
 def image(d,large=False):
-    s=d['slug']; return f'<img src="/assets/{s}-{"large" if large else "small"}.webp?v=20261023-butterfly-v3" width="{1200 if large else 480}" height="{1200 if large else 480}" alt="{e(d["alt"])}" loading="{"eager" if large else "lazy"}" decoding="async">'
+    s=d['slug']; return f'<img src="/assets/{s}-{"large" if large else "small"}.webp?v=20261023-collection-v4" width="{1200 if large else 480}" height="{1200 if large else 480}" alt="{e(d["alt"])}" loading="{"eager" if large else "lazy"}" decoding="async">'
 def cards(items):
     return '<div class="grid">'+''.join(f'<a class="card" href="/coloring-pages/{d["slug"]}/">{image(d)}<span class="card-label">{e(d["name"])} <span aria-hidden="true">↗</span></span><span class="card-note">{e(d["short"])}</span></a>' for d in items)+'</div>'
 def page(path,title,desc,body,schema=None,noindex=False):
@@ -55,7 +55,7 @@ for d in DATA:
     s=d['slug']
     dest=OUT/'print'/s/'index.html'
     dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Print {e(d['name'])} | {brand}</title><link rel="stylesheet" href="{BASE_PATH}/assets/print.css?v=20261011"><script src="{BASE_PATH}/assets/print.js?v=20261011" defer></script></head><body><nav class="print-controls" aria-label="Print controls"><a href="{BASE_PATH}/coloring-pages/{s}/">← Back to the mandala</a><button type="button" id="print-button">Print this mandala</button><p>Choose A4 or Letter, portrait, and Fit to page. Turn off headers and footers. The drawing is reduced to 90% with extra white margins.</p></nav><main class="print-sheet"><img id="print-image" src="{BASE_PATH}/assets/{s}-print.png?v=20261023-art4" alt="{e(d['alt'])}" width="1200" height="1200"></main></body></html>''')
+    dest.write_text(f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>Print {e(d['name'])} | {brand}</title><link rel="stylesheet" href="{BASE_PATH}/assets/print.css?v=20261011"><script src="{BASE_PATH}/assets/print.js?v=20261011" defer></script></head><body><nav class="print-controls" aria-label="Print controls"><a href="{BASE_PATH}/coloring-pages/{s}/">← Back to the mandala</a><button type="button" id="print-button">Print this mandala</button><p>Choose A4 or Letter, portrait, and Fit to page. Turn off headers and footers. The drawing is reduced to 90% with extra white margins.</p></nav><main class="print-sheet"><img id="print-image" src="{BASE_PATH}/assets/{s}-print.png?v=20261023-art5" alt="{e(d['alt'])}" width="1200" height="1200"></main></body></html>''')
 
 xml='\n'.join(f'<url><loc>{ORIGIN+p}</loc></url>' for p in pages)
 (OUT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+xml+'</urlset>')

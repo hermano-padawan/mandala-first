@@ -1,0 +1,21 @@
+{
+  "tool": "Built-in image_gen",
+  "references": [
+    "originals/cat-mandala.png",
+    "originals/octopus-mandala.png"
+  ],
+  "images": [
+    {
+      "slug": "woodland-cottage-mandala",
+      "prompt": "Create ONE square printable children's mandala coloring page, a new illustration in the same cohesive series as the reference cat and octopus. Reference images are STYLE REFERENCES ONLY. Match their polished cute storybook drawing, bold smooth black outlines, large closed colorable spaces, decorative concentric circular border and appealing characters. White background, black line art only, no grayscale, no shading, no texture, no text or watermark. Complete circular composition with a white safety margin, nothing cropped. Keep foreground and background clearly separated with no erroneous intersecting lines. High resolution square master. Subject: a delightful woodland fairy-tale cottage, gently curved tiled roof, chimney, arched wooden front door, two rounded windows and one attic window. Short stepping stone path, two spotted mushrooms, a few flowers and leafy bushes. Charming substantial storybook detail, not a sparse schematic. Central scene occupies about two thirds of circle diameter. Three coherent decorative rings: small scallops, alternating diamonds and circles, outer broad pointed leaves. Preserve broad spaces for children to color. House has no face."
+    },
+    {
+      "slug": "sun-and-moon-mandala",
+      "prompt": "Create ONE square printable children's mandala coloring page, a new illustration in the same cohesive series as the reference cat and octopus. Reference images are STYLE REFERENCES ONLY. Match their polished cute storybook drawing, bold smooth black outlines, large closed colorable spaces, decorative concentric circular border and appealing characters. White background, black line art only, no grayscale, no shading, no texture, no text or watermark. Complete circular composition with a white safety margin, nothing cropped. Keep foreground and background clearly separated with no erroneous intersecting lines. High resolution square master. Subject: two charming sky friends, a round smiling sun on the left with broad flame-shaped rays and large expressive eyes with white highlights; a smiling crescent moon on the right with sweet closed eyelash eyes. Both readable and distinct, no tangles or rays crossing faces. A few big five-pointed stars and tiny circles around the pair. Circular frame with scalloped inner edge, alternating stars and circles in separated compartments, outer rounded arch pattern. Rich but uncluttered, same cute character appeal as reference octopus."
+    },
+    {
+      "slug": "bee-mandala",
+      "prompt": "Create ONE square printable children's mandala coloring page, a new illustration in the same cohesive series as the reference cat and octopus. Reference images are STYLE REFERENCES ONLY. Match their polished cute storybook drawing, bold smooth black outlines, large closed colorable spaces, decorative concentric circular border and appealing characters. White background, black line art only, no grayscale, no shading, no texture, no text or watermark. Complete circular composition with a white safety margin, nothing cropped. Keep foreground and background clearly separated with no erroneous intersecting lines. High resolution square master. Subject: a very cute cheerful little bee, large round head and expressive big eyes with highlights, small smile, two curved antennae, gently fluffy collar, plump abdomen divided into broad UNFILLED stripes for coloring, exactly two large visible rounded wings one on each side. A few daisies and leaves in the inner field without crossing the bee. Circular concentric mandala frame, scalloped inner edge, large regular hexagons alternating with circles in a middle ring, broad paired petals in outer ring. Strong sweet character personality matching reference kitten and octopus. Do not give bee cat ears, cat nose, or a cat tail."
+    }
+  ]
+}
