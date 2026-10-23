@@ -24,9 +24,11 @@ Set `SITE_URL=https://your-final-domain` when building for a public domain. The 
 
 The long-tail page titles describe the artwork; keyword demand and ranking difficulty have not been measured. Indexing and rankings are not guaranteed. Hosting logs, operator contact details, privacy language and any new integrations should be reviewed before a public launch.
 
-## Legal notices: complete before treating them as final
+## Legal notices
 
-The English notices in `legal.py` cover operator identity, privacy, cookies, children, free printing permissions and mandatory consumer protections. They are tailored to a Spanish-operated free static website with international visitors, not a certification of compliance in every country. Highlighted `[aqui tu informacion personal]` boxes are intentionally unfinished. Complete legal name, contact email, postal address, tax ID when required, registration details if applicable, email provider and its transfer arrangements. Remove the draft notice only after checking those facts and the actual processing. Do not disclose unnecessary personal documents or children’s information.
+The English notices in `legal.py` describe the personal, non-commercial project operated by LLUIS JANÉ VILES in Spain. Edit the operator constants there to update the public identity and email, then rebuild. They cover GitHub Pages hosting, Atomic Mail correspondence, a maximum six-month retention period after ordinary enquiries are resolved, and personal/classroom printing permissions.
+
+The operator confirmed sole mailbox access, no forwarding, no copies outside Atomic Mail and no AI processing of correspondence. These are operational commitments: keep the notices aligned with actual practices. See `LEGAL_MAINTENANCE.md` for sources, review limits and changes that require reassessment. The notices are not a worldwide compliance certification.
 
 GitHub Pages records IPs for security. Its `_headers` file is not supported on GitHub Pages. Print views use meta noindex and are excluded from the sitemap. Legal HTML uses meta noindex and is excluded from the sitemap. No optional trackers or consent banner are added. Introducing ads, analytics, uploads, accounts or child data collection requires a new assessment and implementation, not just a new paragraph.
 
